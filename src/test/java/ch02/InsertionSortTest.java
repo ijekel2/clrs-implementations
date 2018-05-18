@@ -13,7 +13,7 @@ public class InsertionSortTest {
     public void testSortWithWorstCase(){
         int[] unsortedArray = {4, 3, 2, 1, 0};
         int[] expectedArray = {0, 1, 2, 3, 4};
-        int[] sortedArray = InsertionSort.Sort(unsortedArray);
+        int[] sortedArray = InsertionSort.sort(unsortedArray);
 
         assertArrayEquals(expectedArray, sortedArray);
 
