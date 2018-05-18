@@ -5,7 +5,7 @@ package main.java.ch02;
  */
 public class InsertionSort {
 
-    public static int[] sort(int[] array) {
+    public static void sort(int[] array) {
 
         for(int i = 1; i < array.length; i++){
 
@@ -19,8 +19,6 @@ public class InsertionSort {
             array[j+1] = key;
 
         }
-
-        return array;
 
     }
 }
