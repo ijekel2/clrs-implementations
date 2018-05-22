@@ -1,4 +1,4 @@
-## Algorithms and Data Structure from CLRS Textbook
+## Algorithms and Data Structures from CLRS Textbook
 This repository contains algorithms and data structures from the textbook Introduction to 
 Algorithms by Cormen, Leiserson, Rivest, and Stein (CLRS). For each chapter I implement
 the algorithms in Java and write a simple unit test for each. Due to restrictions in time,
