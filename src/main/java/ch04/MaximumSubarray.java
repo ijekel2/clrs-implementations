@@ -43,7 +43,7 @@ public class MaximumSubarray {
         int leftSum = Integer.MIN_VALUE;
         int sum = 0;
         int maxLeft = 0;
-        for(int i = mid; i >= 0; i--){
+        for(int i = mid; i >= low; i--){
             sum += array[i];
             if(sum > leftSum){
                 leftSum = sum;

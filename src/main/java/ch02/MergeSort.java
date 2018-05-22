@@ -16,11 +16,7 @@ public class MergeSort {
     }
 
     private static void merge(int[] array, int low, int middle, int high) {
-        int[] mergedArray = new int[array.length];
-
-        for (int i = 0; i < array.length; i++) {
-            mergedArray[i] = array[i];
-        }
+        int[] mergedArray = array.clone();
 
         int i = low;
         int j = middle + 1;
