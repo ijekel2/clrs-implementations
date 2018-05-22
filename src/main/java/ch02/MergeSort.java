@@ -5,28 +5,28 @@ package main.java.ch02;
  */
 public class MergeSort {
 
-    public static void sort(int[] array, int p, int r) {
-        if (p < r) {
-            int q = p + (r - p) / 2;
-            sort(array, p, q);
-            sort(array, q + 1, r);
-            merge(array, p, q, r);
+    public static void sort(int[] array, int low, int high) {
+        if (low < high) {
+            int middle = low + (high - low) / 2;
+            sort(array, low, middle);
+            sort(array, middle + 1, high);
+            merge(array, low, middle, high);
         }
 
     }
 
-    private static void merge(int[] array, int p, int q, int r) {
+    private static void merge(int[] array, int low, int middle, int high) {
         int[] mergedArray = new int[array.length];
 
         for (int i = 0; i < array.length; i++) {
             mergedArray[i] = array[i];
         }
 
-        int i = p;
-        int j = q + 1;
-        int k = p;
+        int i = low;
+        int j = middle + 1;
+        int k = low;
 
-        while (i <= q && j <= r) {
+        while (i <= middle && j <= high) {
             if (mergedArray[i] <= mergedArray[j]) {
                 array[k] = mergedArray[i];
                 i++;
@@ -36,7 +36,7 @@ public class MergeSort {
             }
             k++;
         }
-        while (i <= q) {
+        while (i <= middle) {
             array[k] = mergedArray[i];
             k++;
             i++;
