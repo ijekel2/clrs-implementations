@@ -11,4 +11,9 @@ I refrain from implementing certain algorithms that are less relavant to my inte
 ### Chapter 4
 * Finding a Maximum Subarray
 
+### Chapter 6
+* Binary Heap
+* Heapsort
+* Max-priority Queue
+
 
