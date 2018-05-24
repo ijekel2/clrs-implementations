@@ -33,9 +33,7 @@ public class BinaryHeap {
         }
     }
 
-    public static final int parent(int index){
-        return (index - 1)/2;
-    }
+    public static final int parent(int index){ return (index - 1)/2; }
 
     public static final int leftChild(int index){
         return 2*index + 1;

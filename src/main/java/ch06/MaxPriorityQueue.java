@@ -1,8 +1,6 @@
 package main.java.ch06;
 
-import sun.jvm.hotspot.debugger.NotInHeapException;
 
-import java.util.*;
 
 /**
  * Created by nathanjekel on 5/23/18.
@@ -12,15 +10,15 @@ public class MaxPriorityQueue  {
     private int[] maxHeap;
     private int heapSize;
 
-    public void MaxPriorityQueue(){
-        this.maxHeap = new int[0];
-        this.heapSize = 0;
+    public MaxPriorityQueue(){
+        maxHeap = new int[0];
+        heapSize = 0;
     }
 
-    public void MaxPriorityQueue(int[] array){
+    public MaxPriorityQueue(int[] array){
         BinaryHeap.buildMaxHeap(array);
-        this.maxHeap = array;
-        this.heapSize = array.length;
+        maxHeap = array;
+        heapSize = array.length;
     }
 
     public int maximum(){
@@ -34,6 +32,7 @@ public class MaxPriorityQueue  {
         int maximum = maxHeap[0];
         maxHeap[0] = maxHeap[heapSize - 1];
         heapSize--;
+        BinaryHeap.maxHeapify(maxHeap, 0, heapSize);
         return maximum;
     }
 
@@ -44,7 +43,7 @@ public class MaxPriorityQueue  {
         maxHeap[index] = key;
         int parentIndex = BinaryHeap.parent(index);
         while(index > 0 && maxHeap[parentIndex] < maxHeap[index]){
-            BinaryHeap.exchangeArrayElements(maxHeap, maxHeap[index], maxHeap[parentIndex]);
+            BinaryHeap.exchangeArrayElements(maxHeap, index, parentIndex);
             index = parentIndex;
             parentIndex = BinaryHeap.parent(index);
         }
@@ -52,15 +51,15 @@ public class MaxPriorityQueue  {
 
     public void insert(int key){
         int[] newMaxHeap = new int[heapSize + 1];
-        if(maxHeap.length != 0){
-            System.arraycopy(this.maxHeap, 0, newMaxHeap, 0, this.maxHeap.length);
+        if(heapSize != 0){
+            System.arraycopy(maxHeap, 0, newMaxHeap, 0, maxHeap.length);
         }
         newMaxHeap[heapSize] = Integer.MIN_VALUE;
-        this.maxHeap = newMaxHeap;
+        maxHeap = newMaxHeap;
         heapSize++;
 
         try{
-            increaseKey(heapSize, key);
+            increaseKey(heapSize - 1, key);
         } catch (Exception e){
             e.printStackTrace();;
         }

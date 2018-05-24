@@ -16,6 +16,36 @@ public class MaxPriorityQueueTest {
         actualMaxPriorityQueue.insert(6);
         actualMaxPriorityQueue.insert(7);
         int[] expectedMaxPriorityQueue = {7, 5, 6};
-        Assert.assertEquals(expectedMaxPriorityQueue, actualMaxPriorityQueue);
+        Assert.assertArrayEquals(expectedMaxPriorityQueue, actualMaxPriorityQueue.getMaxHeap());
     }
+
+    @Test
+    public void testMaximum(){
+        int[] testArray = {2, 5, 12, 9, 20};
+        MaxPriorityQueue maxPriorityQueue = new MaxPriorityQueue(testArray);
+        int max = maxPriorityQueue.maximum();
+        Assert.assertEquals(20, max);
+
+    }
+
+    @Test
+    public void testExtractMaximum(){
+        int[] testArray = {2, 5, 12, 9, 20};
+        MaxPriorityQueue maxPriorityQueue = new MaxPriorityQueue(testArray);
+
+        try{
+            int max = maxPriorityQueue.extractMaximum();
+            Assert.assertEquals(20, max);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        int[] expectedMaxPriorityQueue = {12, 9, 5, 2, 5};
+        int expectedHeapSize = 4;
+        Assert.assertArrayEquals(expectedMaxPriorityQueue, maxPriorityQueue.getMaxHeap());
+        Assert.assertEquals(expectedHeapSize, maxPriorityQueue.getHeapSize());
+
+    }
+
+
 }
