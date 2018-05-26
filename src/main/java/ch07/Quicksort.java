@@ -4,6 +4,7 @@ import main.java.ch06.BinaryHeap;
 
 /**
  * Created by nathanjekel on 5/25/18.
+ *
  */
 public class Quicksort {
 
@@ -15,7 +16,7 @@ public class Quicksort {
         }
     }
 
-    private static int partition(int[] array, int low, int high){
+    static int partition(int[] array, int low, int high){
         int pivot = array[high];
         int i = low - 1;
         for(int j = low; j <= high - 1; j++){

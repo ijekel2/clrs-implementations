@@ -4,6 +4,7 @@ package main.java.ch06;
 
 /**
  * Created by nathanjekel on 5/23/18.
+ *
  */
 public class MaxPriorityQueue  {
 
@@ -36,7 +37,7 @@ public class MaxPriorityQueue  {
         return maximum;
     }
 
-    public void increaseKey(int index, int key) throws Exception {
+    private void increaseKey(int index, int key) throws Exception {
         if(key < maxHeap[index]){
             throw new Exception("new key is smaller than current key");
         }
@@ -61,7 +62,7 @@ public class MaxPriorityQueue  {
         try{
             increaseKey(heapSize - 1, key);
         } catch (Exception e){
-            e.printStackTrace();;
+            e.printStackTrace();
         }
 
 
@@ -71,15 +72,8 @@ public class MaxPriorityQueue  {
         return maxHeap;
     }
 
-    public void setMaxHeap(int[] maxHeap) {
-        this.maxHeap = maxHeap;
-    }
-
     public int getHeapSize() {
         return heapSize;
     }
 
-    public void setHeapSize(int heapSize) {
-        this.heapSize = heapSize;
-    }
 }
