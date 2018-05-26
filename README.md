@@ -16,4 +16,6 @@ I refrain from implementing certain algorithms that are less relavant to my inte
 * Heapsort
 * Max-priority Queue
 
-
+### Chapter 7
+* Quicksort
+* Randomized Quicksort
