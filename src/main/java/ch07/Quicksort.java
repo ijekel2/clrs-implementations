@@ -7,21 +7,24 @@ import main.java.ch06.BinaryHeap;
  */
 public class Quicksort {
 
-    public void sort(int[] array, int low, int high){
-
-
+    public static void sort(int[] array, int low, int high){
+        if(low < high){
+            int mid = partition(array, low, high);
+            sort(array, low, mid - 1);
+            sort(array, mid + 1, high);
+        }
     }
 
-    private int partition(int[] array, int low, int high){
+    private static int partition(int[] array, int low, int high){
         int pivot = array[high];
         int i = low - 1;
-        for(int j = low; j <= high; j++){
+        for(int j = low; j <= high - 1; j++){
             if(array[j] <= pivot){
                 i = i+1;
                 BinaryHeap.exchangeArrayElements(array, i, j);
             }
         }
-        BinaryHeap.exchangeArrayElements(array, i, high);
+        BinaryHeap.exchangeArrayElements(array, i + 1 , high);
 
         return i+1;
     }
